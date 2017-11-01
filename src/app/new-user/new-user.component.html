@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.nome" id="nome" type="text" class="validate">
+    <label class="active" for="nome">Nome</label>      
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.idpsn" id="idpsn" type="text" class="validate">
+    <label class="active" for="idpsn">Id-psn</label>    
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.dataNasc" id="dataNasc" type="text" class="validate">
+    <label class="active" for="dataNasc">Data Nascimento</label>      
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.dataClan" id="dataClan" type="text" class="validate">
+    <label class="active" for="dataClan">Data ingresso ao Clan</label>    
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.cidade" id="cidade" type="text" class="validate">
+    <label class="active" for="cidade">Cidade</label>    
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.jogos" id="jogos" type="text" class="validate">
+    <label class="active" for="jogos">3 Jogos maior interesse separar por ,</label>    
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.email" id="email" type="email" class="validate">
+    <label class="active" for="email">E-mail</label>      
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <input [(ngModel)]="usuario.password" id="password" type="password" class="validate">
+    <label class="active" for="password">Senha</label>    
+  </div>
+</div>
+
+<button class="btn waves-effect waves-light" type="submit" name="action" (click)='gravaNovoMembro()'>Criar conta
+  <i class="material-icons right">send</i>
+</button>

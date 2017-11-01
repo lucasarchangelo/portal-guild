@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = 'app';
+  mostrarMenuLogado:boolean = false;
+  constructor(private authService: AuthService){ }
+
+  ngOnInit(){
+    this.authService.mostrarMenuLogadoEmitter.subscribe(
+      mostrar => this.mostrarMenuLogado = mostrar
+    );
+  }
 }
