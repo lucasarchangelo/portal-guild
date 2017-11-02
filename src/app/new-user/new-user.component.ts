@@ -9,16 +9,18 @@ import { UserService } from './user.service';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-  
-  usuario:Usuario = new Usuario();
-  
+
+  usuario: Usuario = new Usuario();
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  gravaNovoMembro(){
-    this.userService.gravaNovoMembro(this.usuario);
+  gravaNovoMembro() {
+    this.userService.gravaNovoMembro(this.usuario).subscribe(data => {
+      alert('Cadastro efetuado com sucesso!');
+    });
   }
 
 }

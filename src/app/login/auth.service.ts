@@ -6,17 +6,17 @@ import { Usuario } from './usuario';
 @Injectable()
 export class AuthService {
 
-  private usuarioAutenticado: boolean = false;
-  mostrarMenuLogadoEmitter = new EventEmitter<boolean>(); 
+  private usuarioAutenticado = false;
+  mostrarMenuLogadoEmitter = new EventEmitter<boolean>();
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
-  login(usuario: Usuario){
-      if(usuario.email === 'usuario@email.com' && usuario.password === '123456'){
+  login(usuario: Usuario) {
+      if (usuario.email === 'usuario@email.com' && usuario.password === '123456'){
         this.usuarioAutenticado = true;
         this.mostrarMenuLogadoEmitter.emit(true);
         this.router.navigate(['/admin']);
-      }else{
+      }else {
         this.usuarioAutenticado = true;
         this.mostrarMenuLogadoEmitter.emit(false);
       }

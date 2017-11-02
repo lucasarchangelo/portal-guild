@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { UserService } from './new-user/user.service';
 import { MaterializeModule } from 'angular2-materialize';
@@ -24,7 +25,8 @@ import { EventosComponent } from './eventos/eventos.component';
     MaterializeModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [
     AuthService,

@@ -10,16 +10,16 @@ import { Usuario } from './usuario';
 })
 export class LoginComponent implements OnInit {
 
-  usuario:Usuario = new Usuario();
+  usuario: Usuario = new Usuario();
 
-  constructor(private authservice:AuthService) { }
+  constructor(private authservice: AuthService) { }
 
   ngOnInit() {
   }
 
-  login(){
+  login() {
     this.authservice.login(this.usuario);
   }
 
-  
+
 }
