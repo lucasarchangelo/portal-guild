@@ -10,18 +10,9 @@ import { AuthService } from './../login/auth.service';
 })
 export class AdminComponent implements OnInit {
   mostrarMenuLogado = false;
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.authService.mostrarMenuLogadoEmitter.subscribe(
-      mostrar => {
-        this.mostrarMenuLogado = mostrar;
-
-        if (!this.mostrarMenuLogado) {
-          this.router.navigate(['/login']);
-        }
-      }
-    );
   }
 
 }

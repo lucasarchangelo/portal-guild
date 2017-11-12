@@ -22,8 +22,8 @@ export class NewUserComponent implements OnInit {
   gravaNovoMembro() {
     $('#modal1').modal('open');
     this.userService.gravaNovoMembro(this.usuario).subscribe(data => {
-      alert('Cadastro efetuado com sucesso!');
       $('#modal1').modal('close');
+      $('#modal3').modal('open');
     },
     error => {
       $('#modal1').modal('close');

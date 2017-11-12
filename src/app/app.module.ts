@@ -1,4 +1,3 @@
-import { AuthGuard } from './guards/auth-guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +13,8 @@ import { AdminComponent } from './admin/admin.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { AdmMembrosComponent } from './adm-membros/adm-membros.component';
+import { AdmMembrosService } from './adm-membros/adm-membros.service';
+import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdmMembrosComponent } from './adm-membros/adm-membros.component';
   providers: [
     AuthService,
     UserService,
-    AuthGuard
+    AuthGuard,
+    AdmMembrosService
   ],
   bootstrap: [AppComponent]
 })

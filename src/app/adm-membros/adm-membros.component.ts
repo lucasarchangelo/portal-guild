@@ -1,3 +1,4 @@
+import { AdmMembrosService } from './adm-membros.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmMembrosComponent implements OnInit {
 
-  constructor() { }
+  players: any;
+  constructor( private admMembrosService: AdmMembrosService) { }
 
   ngOnInit() {
+    this.listAll();
   }
 
+  listAll() {
+    this.admMembrosService.listAll().subscribe(
+      data => {
+        this.players = data;
+        console.log(this.players);
+      }
+    );
+  }
 }
