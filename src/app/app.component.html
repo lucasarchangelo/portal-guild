@@ -3,23 +3,23 @@
     <nav>
       <div class="nav-wrapper">
         <a routerLink="" class="brand-logo right">Portal Guild</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>            
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li routerLinkActive='active'><a routerLink="new-user" >Novo Membro</a></li>
-          <li routerLinkActive='active'><a routerLink="login" >Login</a></li>
+          <li routerLinkActive='active'><a routerLink="login" *ngIf="!mostrarMenuLogado">Login</a></li>
           <li routerLinkActive='active'><a routerLink="eventos" *ngIf="mostrarMenuLogado" >Eventos</a></li>
-          <li routerLinkActive='active'><a routerLink="admin" *ngIf="mostrarMenuLogado" >Admin</a></li>
+          <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="mostrarMenuLogado" >Membros <span class="new badge" data-badge-caption="Membros pendentes">3 </span></a></li>
         </ul>
       </div>
     </nav>
   </div>
   <ul class="side-nav" id="mobile-demo">
       <li routerLinkActive='active'><a routerLink="new-user" >Novo Membro</a></li>
-      <li routerLinkActive='active'><a routerLink="login" >Login</a></li>
+      <li routerLinkActive='active'><a routerLink="login" *ngIf="!mostrarMenuLogado" >Login</a></li>
       <li routerLinkActive='active'><a routerLink="eventos" *ngIf="mostrarMenuLogado" >Eventos</a></li>
-      <li routerLinkActive='active'><a routerLink="admin" *ngIf="mostrarMenuLogado" >Admin</a></li>
+      <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="mostrarMenuLogado" >Membros</a></li>
   </ul>
 </header>
 <div class="container">
-    <router-outlet></router-outlet>  
+    <router-outlet></router-outlet>
 </div>

@@ -12,13 +12,17 @@ export class AuthService {
   constructor(private router: Router) { }
 
   login(usuario: Usuario) {
-      if (usuario.email === 'usuario@email.com' && usuario.password === '123456'){
+      if (usuario.email === 'usuario@email.com' && usuario.password === '123456') {
         this.usuarioAutenticado = true;
         this.mostrarMenuLogadoEmitter.emit(true);
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/adm-membros']);
       }else {
-        this.usuarioAutenticado = true;
+        this.usuarioAutenticado = false;
         this.mostrarMenuLogadoEmitter.emit(false);
       }
+  }
+
+  isUsuarioAutenticado() {
+    return this.usuarioAutenticado;
   }
 }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth-guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,12 +7,13 @@ import { HttpModule } from '@angular/http';
 import { UserService } from './new-user/user.service';
 import { MaterializeModule } from 'angular2-materialize';
 import { AuthService } from './login/auth.service';
-import { AppRoutingModule } from './app.routing.module';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { EventosComponent } from './eventos/eventos.component';
+import { AdmMembrosComponent } from './adm-membros/adm-membros.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { EventosComponent } from './eventos/eventos.component';
     LoginComponent,
     AdminComponent,
     NewUserComponent,
-    EventosComponent
+    EventosComponent,
+    AdmMembrosComponent
   ],
   imports: [
     MaterializeModule,
@@ -30,7 +33,8 @@ import { EventosComponent } from './eventos/eventos.component';
   ],
   providers: [
     AuthService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

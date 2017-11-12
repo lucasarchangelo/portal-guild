@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  title = 'app';
-  mostrarMenuLogado:boolean = false;
-  constructor(private authService: AuthService){ }
 
-  ngOnInit(){
+  title = 'app';
+  mostrarMenuLogado = false;
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
     this.authService.mostrarMenuLogadoEmitter.subscribe(
       mostrar => this.mostrarMenuLogado = mostrar
     );

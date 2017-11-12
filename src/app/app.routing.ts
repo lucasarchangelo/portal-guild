@@ -1,3 +1,5 @@
+import { AuthGuard } from './guards/auth-guard';
+import { AdmMembrosComponent } from './adm-membros/adm-membros.component';
 import { NgModule } from '@angular/core';
 import { EventosComponent } from './eventos/eventos.component';
 import { ModuleWithProviders} from '@angular/core';
@@ -9,20 +11,18 @@ import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
     { path: '', component: NewUserComponent },
-    { path: 'login', component: LoginComponent},   
+    { path: 'login', component: LoginComponent},
     { path: 'new-user', component: NewUserComponent},
-    { path: 'eventos', component: EventosComponent},
-    { path: 'admin', component: AdminComponent}
+    { path: 'eventos', component: EventosComponent, canActivate: [AuthGuard]},
+    { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forRoot(appRoutes)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
 })
-export class AppRoutingModule{
-
-}
+export class AppRoutingModule { }

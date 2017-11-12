@@ -1,0 +1,57 @@
+<table>
+  <thead>
+    <tr>
+        <th>Nome</th>
+        <th>ID PSN</th>
+        <th>Cidade</th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alvin</td>
+      <td>Eclair</td>
+      <td>Minas</td>
+      <td>
+          <button class="btn waves-effect waves-light" type="submit" name="action" (click)='aceptMember()' *ngIf="true">Aceitar convite
+          </button>
+          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='aceptMember()' *ngIf="true">Rejeitar convite
+          </button>
+          <button class="btn waves-effect waves-light" type="submit" name="action" (click)='addAsAdm()' *ngIf="false">Tornar ADM
+          </button>
+          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan()' *ngIf="false">Excluir do Clan
+          </button>
+      </td>
+    </tr>
+    <tr>
+      <td>Alan</td>
+      <td>Jellybean</td>
+      <td>Minas</td>
+      <td>
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)='aceptMember()' *ngIf="false">Aceitar convite
+        </button>
+        <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='aceptMember()' *ngIf="false">Rejeitar convite
+        </button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)='addAsAdm()' *ngIf="true">Tornar ADM
+        </button>
+        <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan()' *ngIf="true">Excluir do Clan
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>Jonathan</td>
+      <td>Lollipop</td>
+      <td>Minas</td>
+      <td>
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)='aceptMember()' *ngIf="false">Aceitar convite
+        </button>
+        <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='aceptMember()' *ngIf="false">Rejeitar convite
+        </button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)='addAsAdm()' *ngIf="false">Tornar ADM
+        </button>
+        <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan()' *ngIf="true">Excluir do Clan
+        </button>
+    </td>
+    </tr>
+  </tbody>
+</table>
