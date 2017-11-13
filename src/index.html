@@ -15,11 +15,14 @@
   <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();
-        $('#modal1').modal({
+        $('#modalNewUserCarregando').modal({
           dismissible: false,
         });
-        $('#modal2').modal();
-        $('#modal3').modal();
+        $('#modalNewUserError').modal();
+        $('#modalNewUserSucesso').modal();
+        $('#modalAdmCarregando').modal({
+          dismissible: false,
+        });
       });
   </script>
 </body>

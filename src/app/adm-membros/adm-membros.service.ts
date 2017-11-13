@@ -15,4 +15,23 @@ export class AdmMembrosService {
 
     return this.http.get(this.url, options).map((res: Response) => res.json());
   }
+
+  aceptMember(iduser: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers });
+
+    return this.http.put(this.url + `/member/${iduser}`, options).map((res: Response) => res.json());
+  }
+
+  addAsAdm(iduser: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers });
+
+    return this.http.put(this.url + `/adm/${iduser}`, options).map((res: Response) => res.json());
+  }
+
+  removeFromClan(iduser: any) {
+  }
 }

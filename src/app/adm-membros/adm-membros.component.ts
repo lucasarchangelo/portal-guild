@@ -1,5 +1,7 @@
 import { AdmMembrosService } from './adm-membros.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+
+declare var $: any;
 
 @Component({
   selector: 'app-adm-membros',
@@ -19,8 +21,27 @@ export class AdmMembrosComponent implements OnInit {
     this.admMembrosService.listAll().subscribe(
       data => {
         this.players = data;
-        console.log(this.players);
       }
     );
+  }
+
+  aceptMember(iduser: any) {
+    this.admMembrosService.aceptMember(iduser).subscribe(
+      data => {
+        this.listAll();
+      }
+    );
+  }
+
+  addAsAdm(iduser: any) {
+    this.admMembrosService.addAsAdm(iduser).subscribe(
+      data => {
+        this.listAll();
+      }
+    );
+  }
+
+  removeFromClan(iduser: any) {
+
   }
 }
