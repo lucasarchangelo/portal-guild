@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
+import { AccessRoles } from './roles';
+
 @Injectable()
 export class AdmMembrosService {
 
@@ -21,7 +23,7 @@ export class AdmMembrosService {
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers });
 
-    return this.http.put(this.url + `/member/${iduser}`, options).map((res: Response) => res.json());
+    return this.http.put(this.url + `/${ iduser }/${ AccessRoles.MEMBER }`, options).map((res: Response) => res.json());
   }
 
   addAsAdm(iduser: any) {
@@ -29,9 +31,14 @@ export class AdmMembrosService {
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers });
 
-    return this.http.put(this.url + `/adm/${iduser}`, options).map((res: Response) => res.json());
+    return this.http.put(this.url + `/${ iduser }/${ AccessRoles.ADMIN }`, options).map((res: Response) => res.json());
   }
 
   removeFromClan(iduser: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers });
+
+    return this.http.delete(this.url + `/${ iduser }`, options).map((res: Response) => res.json());
   }
 }

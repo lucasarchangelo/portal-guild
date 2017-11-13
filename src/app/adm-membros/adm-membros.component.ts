@@ -42,6 +42,10 @@ export class AdmMembrosComponent implements OnInit {
   }
 
   removeFromClan(iduser: any) {
-
+    this.admMembrosService.removeFromClan(iduser).subscribe(
+      data => {
+        this.listAll();
+      }
+    );
   }
 }
