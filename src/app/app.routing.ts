@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     { path: '', component: NewUserComponent },
     { path: 'login', component: LoginComponent},
     { path: 'new-user', component: NewUserComponent},
-    { path: 'eventos', component: EventosComponent, canActivate: [AuthGuard]},
+    { path: 'eventos', component: EventosComponent},
     { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]}
 ];
 

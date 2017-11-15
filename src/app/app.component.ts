@@ -9,12 +9,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'app';
+  mostrarMenuADM = false;
   mostrarMenuLogado = false;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authService.mostrarMenuLogadoEmitter.subscribe(
       mostrar => this.mostrarMenuLogado = mostrar
+    );
+
+    this.authService.mostrarADMEmitter.subscribe(
+      mostrarAdm => this.mostrarMenuADM = mostrarAdm
     );
   }
 }

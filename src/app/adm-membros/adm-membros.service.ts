@@ -1,3 +1,4 @@
+import { AuthService } from './../login/auth.service';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
@@ -8,11 +9,13 @@ export class AdmMembrosService {
 
   url = `http://localhost:8080/users`;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private authService: AuthService) { }
 
   listAll() {
     const headers = new Headers();
+
     headers.append('Content-Type', 'application/json');
+    headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
     return this.http.get(this.url, options).map((res: Response) => res.json());
@@ -21,6 +24,7 @@ export class AdmMembrosService {
   aceptMember(iduser: any) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
     return this.http.put(this.url + `/${ iduser }/${ AccessRoles.MEMBER }`, options).map((res: Response) => res.json());
@@ -29,6 +33,7 @@ export class AdmMembrosService {
   addAsAdm(iduser: any) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
     return this.http.put(this.url + `/${ iduser }/${ AccessRoles.ADMIN }`, options).map((res: Response) => res.json());
@@ -37,6 +42,7 @@ export class AdmMembrosService {
   removeFromClan(iduser: any) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
     return this.http.delete(this.url + `/${ iduser }`, options).map((res: Response) => res.json());
