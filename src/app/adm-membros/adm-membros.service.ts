@@ -7,7 +7,7 @@ import { AccessRoles } from './roles';
 @Injectable()
 export class AdmMembrosService {
 
-  url = `http://localhost:8080/users`;
+  url = `https://backend-guild.herokuapp.com/users`;
 
   constructor(private http: Http, private authService: AuthService) { }
 
@@ -27,7 +27,7 @@ export class AdmMembrosService {
     headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
-    return this.http.put(this.url + `/${ iduser }/${ AccessRoles.MEMBER }`, options).map((res: Response) => res.json());
+    return this.http.put(this.url + `/${ iduser }/${ AccessRoles.MEMBER }`, null, options).map((res: Response) => res.json());
   }
 
   addAsAdm(iduser: any) {
@@ -36,7 +36,7 @@ export class AdmMembrosService {
     headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
-    return this.http.put(this.url + `/${ iduser }/${ AccessRoles.ADMIN }`, options).map((res: Response) => res.json());
+    return this.http.put(this.url + `/${ iduser }/${ AccessRoles.ADMIN }`, null, options).map((res: Response) => res.json());
   }
 
   removeFromClan(iduser: any) {
