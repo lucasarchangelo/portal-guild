@@ -1,5 +1,5 @@
 import { AdmMembrosService } from './adm-membros.service';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 declare var $: any;
 
@@ -18,9 +18,11 @@ export class AdmMembrosComponent implements OnInit {
   }
 
   listAll() {
+    $('#modal1').modal('open');
     this.admMembrosService.listAll().subscribe(
       data => {
         this.players = data;
+        $('#modal1').modal('close');
       }
     );
   }

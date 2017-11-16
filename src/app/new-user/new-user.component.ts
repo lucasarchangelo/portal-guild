@@ -20,14 +20,14 @@ export class NewUserComponent implements OnInit {
   }
 
   gravaNovoMembro() {
-    $('#modalNewUserCarregando').modal('open');
+    $('#modal1').modal('open');
     this.userService.gravaNovoMembro(this.usuario).subscribe(data => {
-      $('#modalNewUserCarregando').modal('close');
-      $('#modalNewUserSucesso').modal('open');
+      $('#modal1').modal('close');
+      $('#modal3').modal('open');
     },
     error => {
-      $('#modalNewUserCarregando').modal('close');
-      $('#modalNewUserError').modal('open');
+      $('#modal1').modal('close');
+      $('#modal2').modal('open');
     });
   }
 
