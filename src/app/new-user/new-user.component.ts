@@ -19,11 +19,12 @@ export class NewUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  gravaNovoMembro() {
+  gravaNovoMembro(form) {
     $('#modal1').modal('open');
     this.userService.gravaNovoMembro(this.usuario).subscribe(data => {
       $('#modal1').modal('close');
       $('#modal3').modal('open');
+      form.reset();
     },
     error => {
       $('#modal1').modal('close');
