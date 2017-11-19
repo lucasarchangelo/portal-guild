@@ -1,5 +1,5 @@
 export class Evento {
-  title: string;
+  name: string;
   date: string;
-  members: string[];
+  players: string[];
 }
