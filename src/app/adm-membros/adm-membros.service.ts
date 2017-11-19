@@ -7,7 +7,7 @@ import { AccessRoles } from './roles';
 @Injectable()
 export class AdmMembrosService {
 
-  url = `https://backend-guild.herokuapp.com/users`;
+  url = `https://backend-guild.herokuapp.com/guild/users`;
 
   constructor(private http: Http, private authService: AuthService) { }
 

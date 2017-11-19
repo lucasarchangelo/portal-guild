@@ -7,7 +7,7 @@ import { Usuario } from './usuario';
 @Injectable()
 export class UserService {
 
-  url = `https://backend-guild.herokuapp.com/users`;
+  url = `https://backend-guild.herokuapp.com/guild/users`;
 
   constructor(private http: Http) { }
 
