@@ -15,6 +15,8 @@ import { EventosComponent } from './eventos/eventos.component';
 import { AdmMembrosComponent } from './adm-membros/adm-membros.component';
 import { AdmMembrosService } from './adm-membros/adm-membros.service';
 import { AuthGuard } from './guards/auth-guard';
+import { AdmEventosComponent } from './adm-eventos/adm-eventos.component';
+import { AdmEventosService } from './adm-eventos/adm-eventos.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AuthGuard } from './guards/auth-guard';
     AdminComponent,
     NewUserComponent,
     EventosComponent,
-    AdmMembrosComponent
+    AdmMembrosComponent,
+    AdmEventosComponent
   ],
   imports: [
     MaterializeModule,
@@ -36,7 +39,8 @@ import { AuthGuard } from './guards/auth-guard';
     AuthService,
     UserService,
     AuthGuard,
-    AdmMembrosService
+    AdmMembrosService,
+    AdmEventosService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Evento } from '../eventos/evento';
 import { AuthService } from '../login/auth.service';
 
 @Injectable()
-export class EventosService {
+export class AdmEventosService {
 
-  url = `https://backend-guild.herokuapp.com/guild/events`;
+  // url = `https://backend-guild.herokuapp.com/guild/users`;
+  url = `http://localhost:5000/guild/event`;
 
   constructor(private http: Http, private authService: AuthService) { }
-
-  listAll() {
+  gravaNovoEvento(evento: Evento) {
     const headers = new Headers();
-
     headers.append('Content-Type', 'application/json');
     headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
-
-    return this.http.get(this.url, options).map((res: Response) => res.json());
+    evento.players = [];
+    return this.http.post(this.url, JSON.stringify(evento), options).
+      map((res: Response) => res.json());
   }
 }
