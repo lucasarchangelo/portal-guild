@@ -18,7 +18,6 @@ export class AuthService {
 
   login(usuario: Usuario, form: any, $: any) {
     $('#modal1').modal('open');
-    form.reset();
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers });
@@ -41,6 +40,7 @@ export class AuthService {
         this.mostrarMenuLogadoEmitter.emit(false);
         this.usuarioAutenticado = false;
         this.usuarioAcesso = -1;
+        form.reset();
         $('#modal1').modal('close');
         $('#modal2').modal('open');
       });
