@@ -16,8 +16,9 @@ export class AuthService {
   // url = `http://localhost:5000/guild/login`;
   constructor(private router: Router, private http: Http) { }
 
-  login(usuario: Usuario) {
-
+  login(usuario: Usuario, form: any, $: any) {
+    $('#modal1').modal('open');
+    form.reset();
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers });
@@ -40,8 +41,21 @@ export class AuthService {
         this.mostrarMenuLogadoEmitter.emit(false);
         this.usuarioAutenticado = false;
         this.usuarioAcesso = -1;
+        $('#modal1').modal('close');
+        $('#modal2').modal('open');
       });
   }
+
+  autenticaUsuario() {
+    if (this.usuarioAcesso > 1) {
+      this.router.navigate(['/adm-membros']);
+      this.mostrarADMEmitter.emit(true);
+    }else {
+      this.router.navigate(['/eventos']);
+      this.mostrarADMEmitter.emit(false);
+    }
+  }
+
 
   isUsuarioAutenticado() {
     return this.usuarioAutenticado;
