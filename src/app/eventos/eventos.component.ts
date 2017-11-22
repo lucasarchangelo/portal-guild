@@ -10,8 +10,8 @@ declare var $: any;
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
-  private events: any;
-  private mostrarMenuADM = false;
+  events: any;
+  mostrarMenuADM = false;
   constructor(private eventosService: EventosService, private authService: AuthService) { }
 
   ngOnInit() {

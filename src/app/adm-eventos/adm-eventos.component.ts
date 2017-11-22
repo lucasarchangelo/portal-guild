@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class AdmEventosComponent implements OnInit {
 
-  private event: Evento = new Evento();
+  event: Evento = new Evento();
   constructor(private admEventosService: AdmEventosService) { }
 
   ngOnInit() {
