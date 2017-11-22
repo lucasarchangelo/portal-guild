@@ -17,6 +17,7 @@ import { AdmMembrosService } from './adm-membros/adm-membros.service';
 import { AuthGuard } from './guards/auth-guard';
 import { AdmEventosComponent } from './adm-eventos/adm-eventos.component';
 import { AdmEventosService } from './adm-eventos/adm-eventos.service';
+import { EventosService } from './eventos/eventos.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AdmEventosService } from './adm-eventos/adm-eventos.service';
     UserService,
     AuthGuard,
     AdmMembrosService,
-    AdmEventosService
+    AdmEventosService,
+    EventosService
   ],
   bootstrap: [AppComponent]
 })

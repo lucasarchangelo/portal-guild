@@ -7,8 +7,8 @@ import { Usuario } from './usuario';
 @Injectable()
 export class UserService {
 
-  // url = `https://backend-guild.herokuapp.com/guild/users`;
-  url = `http://localhost:5000/guild/users`;
+   url = `https://backend-guild.herokuapp.com/guild/users`;
+  // url = `http://localhost:5000/guild/users`;
   constructor(private http: Http) { }
 
   gravaNovoMembro(usuario: Usuario) {

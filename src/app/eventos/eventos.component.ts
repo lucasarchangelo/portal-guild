@@ -10,7 +10,7 @@ declare var $: any;
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
-  private eventos: any;
+  private events: any;
   private mostrarMenuADM = false;
   constructor(private eventosService: EventosService, private authService: AuthService) { }
 
@@ -26,8 +26,16 @@ export class EventosComponent implements OnInit {
     $('#modal1').modal('open');
     this.eventosService.listAll().subscribe(
       data => {
-        this.eventos = data;
+        this.events = data;
         $('#modal1').modal('close');
+      }
+    );
+  }
+
+  joinEvent(eventId: any) {
+    this.eventosService.joinEvent(eventId).subscribe(
+      data => {
+        this.listAll();
       }
     );
   }

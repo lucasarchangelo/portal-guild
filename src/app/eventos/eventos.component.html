@@ -11,8 +11,8 @@
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Membros participantes<i class="material-icons right">close</i></span>
-                <p *ngFor="let player of events.players;">{{ player.psnid }}</p>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Participar
+                <p *ngFor="let player of event.players;">{{ player.idpsn }}</p>
+                <button class="btn waves-effect waves-light" type="submit" name="action" (click)=joinEvent(event._id)>Participar
                     <i class="material-icons right">send</i>
                 </button>
               </div>

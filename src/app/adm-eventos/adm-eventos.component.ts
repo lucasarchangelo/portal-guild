@@ -1,7 +1,7 @@
-import { AdmEventosService } from './adm-eventos.service';
 import { Component, OnInit } from '@angular/core';
 
-import { Evento } from '../eventos/evento';
+import { AdmEventosService } from './adm-eventos.service';
+import { Evento } from '../adm-eventos/evento';
 
 declare var $: any;
 @Component({
@@ -11,13 +11,13 @@ declare var $: any;
 })
 export class AdmEventosComponent implements OnInit {
 
-  private event: Evento;
+  private event: Evento = new Evento();
   constructor(private admEventosService: AdmEventosService) { }
 
   ngOnInit() {
   }
 
-  gravaNovoMembro(form) {
+  gravaNovoEvento(form) {
     $('#modal1').modal('open');
     this.admEventosService.gravaNovoEvento(this.event).subscribe(data => {
       $('#modal1').modal('close');

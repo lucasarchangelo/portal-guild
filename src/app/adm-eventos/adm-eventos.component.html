@@ -3,13 +3,13 @@
     <div class="row">
       <div class="input-field col s12">
         <input [(ngModel)]="event.name" id="name" name="name" type="text" class="validate" required>
-        <label class="active" for="nome">Nome</label>
+        <label class="active" for="name">Nome</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input [(ngModel)]="event.date" id="date" name="date" type="text" class="datepicker" required>
-        <label class="active" for="idpsn">Data</label>
+        <input [(ngModel)]="event.date" id="date" name="date" type="text" class="validate" required>
+        <label class="active" for="date">Data</label>
       </div>
     </div>
     <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!f.valid">Criar evento
