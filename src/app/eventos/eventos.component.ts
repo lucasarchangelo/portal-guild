@@ -39,7 +39,13 @@ export class EventosComponent implements OnInit {
       }
     );
   }
-
+  deleteEvent(eventId: any) {
+    this.eventosService.deleteEvent(eventId).subscribe(
+      data => {
+        this.listAll();
+      }
+    );
+  }
   criarEvento() {
 
   }

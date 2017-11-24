@@ -20,12 +20,21 @@ export class EventosService {
     return this.http.get(this.url, options).map((res: Response) => res.json());
   }
 
-  joinEvent(idEvent: any) {
+joinEvent(idEvent: any) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
 
-    return this.http.put(this.url + `/${ idEvent }`, null, options).map((res: Response) => res.json());
+    return this.http.put(this.url + `/${ idEvent }/join`, null, options).map((res: Response) => res.json());
+  }
+
+deleteEvent(idEvent: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('x-access-token', this.authService.getToken());
+    const options = new RequestOptions({ headers });
+
+    return this.http.delete(this.url + `/${ idEvent }`, options).map((res: Response) => res.json());
   }
 }

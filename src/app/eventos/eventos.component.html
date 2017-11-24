@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row" *ngFor="let event of events;">
       <div class="col s12">
+          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteEvent(event._id)'>Excluir Evento
+          </button>
           <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="assets/images/destiny-2.jpg">
@@ -20,7 +22,7 @@
       </div>
   </div>
 </div>
-<div class="fixed-action-btn" *ngIf="mostrarMenuADM">
+<div class="fixed-action-btn">
     <a class="btn-floating btn-large red">
         <i class="material-icons">add</i>
     </a>

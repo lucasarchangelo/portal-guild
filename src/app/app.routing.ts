@@ -15,8 +15,8 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'new-user', component: NewUserComponent},
     { path: 'eventos', component: EventosComponent},
-    { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]},
-    { path: 'adm-eventos', component: AdmEventosComponent, canActivate: [AuthGuard]}
+    { path: 'adm-eventos', component: AdmEventosComponent},
+    { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

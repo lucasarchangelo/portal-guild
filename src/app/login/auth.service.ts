@@ -10,6 +10,7 @@ export class AuthService {
   private token = '';
   private usuarioAutenticado = false;
   private usuarioAcesso = -1;
+  private usuarioID = '';
   mostrarMenuLogadoEmitter = new EventEmitter<boolean>();
   mostrarADMEmitter = new EventEmitter<boolean>();
    url = `https://backend-guild.herokuapp.com/guild/login`;
@@ -27,6 +28,7 @@ export class AuthService {
         this.mostrarMenuLogadoEmitter.emit(true);
         this.usuarioAcesso = data.acesso;
         this.token = data.token;
+        this.usuarioID = data.id;
         if (this.usuarioAcesso > 1) {
           this.router.navigate(['/adm-membros']);
           this.mostrarADMEmitter.emit(true);
@@ -40,6 +42,7 @@ export class AuthService {
         this.mostrarMenuLogadoEmitter.emit(false);
         this.usuarioAutenticado = false;
         this.usuarioAcesso = -1;
+        this.usuarioID = '';
         form.reset();
         $('#modal1').modal('close');
         $('#modal2').modal('open');
@@ -67,5 +70,9 @@ export class AuthService {
 
   getToken() {
     return this.token;
+  }
+
+  getID() {
+    return this.usuarioID;
   }
 }
