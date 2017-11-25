@@ -1,6 +1,6 @@
 export class Evento {
   name: string;
-  date: string;
+  date: any;
   creatorPlayer: string;
   players: string[];
 }

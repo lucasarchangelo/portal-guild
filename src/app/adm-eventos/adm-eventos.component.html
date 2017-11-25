@@ -7,10 +7,14 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
-        <input [(ngModel)]="event.date" id="date" name="date" type="text" class="validate" required>
+      <div class="input-field col s6">
+        <input [(ngModel)]="event.date" id="date" name="date" type="date" class="datepicker">
         <label class="active" for="date">Data</label>
       </div>
+      <div class="input-field col s6">
+          <input [(ngModel)]="time" id="time" name="time" type="text" class="timepicker">
+          <label class="active" for="date">Hora</label>
+        </div>
     </div>
     <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!f.valid">Criar evento
       <i class="material-icons right">send</i>
