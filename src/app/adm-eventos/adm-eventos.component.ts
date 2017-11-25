@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { EventosService } from './../eventos/eventos.service';
 import { AdmEventosService } from './adm-eventos.service';
 import { Evento } from '../adm-eventos/evento';
 
@@ -13,7 +15,7 @@ export class AdmEventosComponent implements OnInit {
 
   event: Evento = new Evento();
   time: any;
-  constructor(private admEventosService: AdmEventosService) { }
+  constructor(private admEventosService: AdmEventosService, private eventosService: EventosService, private router: Router) { }
 
   ngOnInit() {
     $('#date').pickadate({
@@ -43,13 +45,19 @@ export class AdmEventosComponent implements OnInit {
     $('#modal1').modal('open');
     this.event.date =  $('#date').get()[0].value + ' '  + $('.timepicker').get()[0].value;
     this.admEventosService.gravaNovoEvento(this.event).subscribe(data => {
-      $('#modal1').modal('close');
-      $('#modal3').modal('open');
-      form.reset();
+      this.subscribeEvent(data._id);
     },
     error => {
       $('#modal1').modal('close');
       $('#modal2').modal('open');
     });
+  }
+
+subscribeEvent(eventId: any) {
+    this.eventosService.subscribeEvent(eventId).subscribe(
+      data => {
+        this.router.navigate(['/eventos']);
+      }
+    );
   }
 }
