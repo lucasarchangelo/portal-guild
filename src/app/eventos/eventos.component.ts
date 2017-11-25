@@ -2,6 +2,7 @@ import { EventosService } from './eventos.service';
 import { Component, OnInit } from '@angular/core';
 import { Evento } from './evento';
 import { AuthService } from '../login/auth.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 @Component({
@@ -11,15 +12,12 @@ declare var $: any;
 })
 export class EventosComponent implements OnInit {
   events: any;
-  mostrarMenuADM = false;
-  constructor(private eventosService: EventosService, private authService: AuthService) { }
+  usuarioId: any;
+  constructor(private eventosService: EventosService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.listAll();
-
-    this.authService.mostrarADMEmitter.subscribe(
-      mostrarAdm => this.mostrarMenuADM = mostrarAdm
-    );
+    this.usuarioId = this.authService.getID();
   }
 
   listAll() {
@@ -32,8 +30,15 @@ export class EventosComponent implements OnInit {
     );
   }
 
-  joinEvent(eventId: any) {
-    this.eventosService.joinEvent(eventId).subscribe(
+subscribeEvent(eventId: any) {
+    this.eventosService.subscribeEvent(eventId).subscribe(
+      data => {
+        this.listAll();
+      }
+    );
+  }
+unSubscribeEvent(eventId: any) {
+    this.eventosService.unSubscribeEvent(eventId).subscribe(
       data => {
         this.listAll();
       }
@@ -46,7 +51,7 @@ export class EventosComponent implements OnInit {
       }
     );
   }
-  criarEvento() {
-
+  createEvent() {
+    this.router.navigate(['/adm-eventos']);
   }
 }

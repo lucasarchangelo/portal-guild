@@ -1,20 +1,27 @@
 <div class="container">
   <div class="row" *ngFor="let event of events;">
       <div class="col s12">
-          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteEvent(event._id)'>Excluir Evento
-          </button>
           <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="assets/images/destiny-2.jpg">
               </div>
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{ event.name }}<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">{{ event.date }}</a></p>
+                <p>
+                  <a href="#">{{ event.date }}</a>
+                  <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteEvent(event._id)' *ngIf="usuarioId == event.creatorPlayer">Excluir Evento
+                  </button>
+                </p>
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Membros participantes<i class="material-icons right">close</i></span>
-                <p *ngFor="let player of event.players;">{{ player.idpsn }}</p>
-                <button class="btn waves-effect waves-light" type="submit" name="action" (click)=joinEvent(event._id)>Participar
+                <p *ngFor="let player of event.players;">
+                  {{ player.idpsn }}
+                  <button class="btn waves-effect waves-light red" type="submit" name="action" (click)=unSubscribeEvent(event._id) *ngIf="usuarioId == player.id">Sair
+                      <i class="material-icons right">send</i>
+                  </button>
+                </p>
+                <button class="btn waves-effect waves-light" type="submit" name="action" (click)=subscribeEvent(event._id)>Participar
                     <i class="material-icons right">send</i>
                 </button>
               </div>
@@ -23,7 +30,7 @@
   </div>
 </div>
 <div class="fixed-action-btn">
-    <a class="btn-floating btn-large red">
+    <a class="btn-floating btn-large red" (click)="createEvent()">
         <i class="material-icons">add</i>
     </a>
 </div>

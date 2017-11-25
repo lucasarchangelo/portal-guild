@@ -6,8 +6,8 @@ import { AuthService } from '../login/auth.service';
 @Injectable()
 export class AdmEventosService {
 
-   url = `https://backend-guild.herokuapp.com/guild/events`;
-  // url = `http://localhost:5000/guild/events`;
+  // url = `https://backend-guild.herokuapp.com/guild/events`;
+   url = `http://localhost:5000/guild/events`;
 
   constructor(private http: Http, private authService: AuthService) { }
   gravaNovoEvento(evento: Evento) {
