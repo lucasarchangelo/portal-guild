@@ -13,13 +13,17 @@
       <td>{{ player.idpsn }}</td>
       <td>{{ player.cidade }}</td>
       <td>
-          <button class="btn waves-effect waves-light" type="submit" name="action" (click)='aceptMember(player._id)' *ngIf="player.acesso == 0">Aceitar convite
+          <button class="btn waves-effect waves-light" type="submit" name="action" (click)='aceptMember(player._id)' *ngIf="player.acesso == 0">
+              <i class="material-icons left">done</i><span class="hide-on-small-only">Aceitar convite</span>
           </button>
-          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan(player._id)' *ngIf="player.acesso == 0">Rejeitar convite
+          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan(player._id)' *ngIf="player.acesso == 0">
+              <i class="material-icons left">do_not_disturb</i><span class="hide-on-small-only">Rejeitar convite</span>
           </button>
-          <button class="btn waves-effect waves-light" type="submit" name="action" (click)='addAsAdm(player._id)' *ngIf="player.acesso == 1">Tornar ADM
+          <button class="btn waves-effect waves-light" type="submit" name="action" (click)='addAsAdm(player._id)' *ngIf="player.acesso == 1">
+              <i class="material-icons left">arrow_upward</i><span class="hide-on-small-only">Tornar ADM</span>
           </button>
-          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan(player._id)' *ngIf="player.acesso != 0">Excluir do Clan
+          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='removeFromClan(player._id)' *ngIf="player.acesso != 0">
+              <i class="material-icons left">delete</i><span class="hide-on-small-only">Excluir do Clan</span>
           </button>
       </td>
     </tr>
