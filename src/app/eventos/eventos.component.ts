@@ -54,4 +54,8 @@ unSubscribeEvent(eventId: any) {
   createEvent() {
     this.router.navigate(['/adm-eventos']);
   }
+
+showSubscribeButton(evento: any) {
+    return ( evento.players.filter(x => x.id === this.usuarioId).length === 0 );
+  }
 }
