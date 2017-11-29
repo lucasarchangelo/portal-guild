@@ -13,9 +13,21 @@ declare var $: any;
 export class EventosComponent implements OnInit {
   events: any;
   usuarioId: any;
+  dateFilter: any;
   constructor(private eventosService: EventosService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    $('#date').pickadate({
+      min: new Date(),
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 3, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      format: 'dd/mm/yyyy',
+      closeOnSelect: false // Close upon selecting a date,
+    });
+
     this.listAll();
     this.usuarioId = this.authService.getID();
   }
@@ -55,7 +67,7 @@ unSubscribeEvent(eventId: any) {
     this.router.navigate(['/adm-eventos']);
   }
 
-showSubscribeButton(evento: any) {
+  showSubscribeButton(evento: any) {
     return ( evento.players.filter(x => x.id === this.usuarioId).length === 0 );
   }
 }

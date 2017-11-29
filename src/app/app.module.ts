@@ -18,6 +18,7 @@ import { AuthGuard } from './guards/auth-guard';
 import { AdmEventosComponent } from './adm-eventos/adm-eventos.component';
 import { AdmEventosService } from './adm-eventos/adm-eventos.service';
 import { EventosService } from './eventos/eventos.service';
+import { ArrayFilterPipe } from './eventos/array-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EventosService } from './eventos/eventos.service';
     NewUserComponent,
     EventosComponent,
     AdmMembrosComponent,
-    AdmEventosComponent
+    AdmEventosComponent,
+    ArrayFilterPipe
   ],
   imports: [
     MaterializeModule,
