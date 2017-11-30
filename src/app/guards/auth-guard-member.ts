@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { AuthService } from './../login/auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuardMember implements CanActivate {
 
   constructor( private authService: AuthService, private router: Router) { }
 
@@ -13,8 +13,13 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    if (this.authService.isUsuarioAutenticado() && this.authService.acessLevel() > 1) {
-      return true;
+    if (this.authService.isUsuarioAutenticado()) {
+      if (this.authService.acessLevel() > 0) {
+        return true;
+      }else {
+        this.router.navigate(['/waiting-accept']);
+        return false;
+      }
     }
 
     this.router.navigate(['/login']);

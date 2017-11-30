@@ -11,7 +11,7 @@ export class AuthService {
   private usuarioAutenticado = false;
   private usuarioAcesso = -1;
   private usuarioID = '';
-  mostrarMenuLogadoEmitter = new EventEmitter<boolean>();
+  mostrarMenuLogadoEmitter = new EventEmitter<number>();
   mostrarADMEmitter = new EventEmitter<boolean>();
    url = `https://backend-guild.herokuapp.com/guild/login`;
   // url = `http://localhost:5000/guild/login`;
@@ -25,21 +25,19 @@ export class AuthService {
     return this.http.post(this.url, JSON.stringify(usuario), options).
       map((res: Response) => res.json()).subscribe(data => {
         this.usuarioAutenticado = true;
-        this.mostrarMenuLogadoEmitter.emit(true);
         this.usuarioAcesso = data.acesso;
         this.token = data.token;
         this.usuarioID = data.id;
+        this.mostrarMenuLogadoEmitter.emit(this.usuarioAcesso);
         if (this.usuarioAcesso > 1) {
           this.router.navigate(['/adm-membros']);
-          this.mostrarADMEmitter.emit(true);
         }else {
           this.router.navigate(['/eventos']);
-          this.mostrarADMEmitter.emit(false);
         }
       },
       error => {
         this.mostrarADMEmitter.emit(false);
-        this.mostrarMenuLogadoEmitter.emit(false);
+        this.mostrarMenuLogadoEmitter.emit(-1);
         this.usuarioAutenticado = false;
         this.usuarioAcesso = -1;
         this.usuarioID = '';
@@ -48,17 +46,6 @@ export class AuthService {
         $('#modal2').modal('open');
       });
   }
-
-  autenticaUsuario() {
-    if (this.usuarioAcesso > 1) {
-      this.router.navigate(['/adm-membros']);
-      this.mostrarADMEmitter.emit(true);
-    }else {
-      this.router.navigate(['/eventos']);
-      this.mostrarADMEmitter.emit(false);
-    }
-  }
-
 
   isUsuarioAutenticado() {
     return this.usuarioAutenticado;

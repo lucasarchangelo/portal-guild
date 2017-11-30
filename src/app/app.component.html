@@ -5,22 +5,22 @@
         <a routerLink="" class="brand-logo right">Portal Guild</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li routerLinkActive='active'><a routerLink="login" *ngIf="(mostrarMenuLogado===-1)">Login</a></li>
           <li routerLinkActive='active'><a routerLink="new-user" >Novo Membro</a></li>
-          <li routerLinkActive='active'><a routerLink="login" *ngIf="!mostrarMenuLogado">Login</a></li>
-          <li routerLinkActive='active'><a routerLink="eventos" *ngIf="mostrarMenuLogado" >Eventos</a></li>
-          <li routerLinkActive='active'><a routerLink="adm-eventos" *ngIf="mostrarMenuLogado" >Novo Evento</a></li>
-          <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="mostrarMenuADM" >Membros
+          <li routerLinkActive='active'><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
+          <li routerLinkActive='active'><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
+          <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="(mostrarMenuLogado>1)" >Membros
             <span class="new badge" data-badge-caption="Membros pendentes">1 </span></a></li>
         </ul>
       </div>
     </nav>
   </div>
   <ul class="side-nav" id="mobile-demo">
+      <li routerLinkActive='active'><a routerLink="login" *ngIf="(mostrarMenuLogado===-1)" >Login</a></li>
       <li routerLinkActive='active'><a routerLink="new-user" >Novo Membro</a></li>
-      <li routerLinkActive='active'><a routerLink="login" *ngIf="!mostrarMenuLogado" >Login</a></li>
-      <li routerLinkActive='active'><a routerLink="eventos" *ngIf="mostrarMenuLogado" >Eventos</a></li>
-      <li routerLinkActive='active'><a routerLink="adm-eventos" *ngIf="mostrarMenuLogado" >Novo Evento</a></li>
-      <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="mostrarMenuADM" >Membros</a></li>
+      <li routerLinkActive='active'><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
+      <li routerLinkActive='active'><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
+      <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="(mostrarMenuLogado>1)" >Membros</a></li>
   </ul>
 </header>
 <div class="container">

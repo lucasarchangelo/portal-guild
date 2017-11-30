@@ -10,7 +10,7 @@ export class AppComponent {
 
   title = 'app';
   mostrarMenuADM = false;
-  mostrarMenuLogado = false;
+  mostrarMenuLogado = -1;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {

@@ -1,3 +1,4 @@
+import { AuthGuardMember } from './guards/auth-guard-member';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ import { AdmEventosComponent } from './adm-eventos/adm-eventos.component';
 import { AdmEventosService } from './adm-eventos/adm-eventos.service';
 import { EventosService } from './eventos/eventos.service';
 import { ArrayFilterPipe } from './eventos/array-filter.pipe';
+import { WaitingAcceptComponent } from './waiting-accept/waiting-accept.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ArrayFilterPipe } from './eventos/array-filter.pipe';
     EventosComponent,
     AdmMembrosComponent,
     AdmEventosComponent,
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    WaitingAcceptComponent
   ],
   imports: [
     MaterializeModule,
@@ -42,6 +45,7 @@ import { ArrayFilterPipe } from './eventos/array-filter.pipe';
     AuthService,
     UserService,
     AuthGuard,
+    AuthGuardMember,
     AdmMembrosService,
     AdmEventosService,
     EventosService
