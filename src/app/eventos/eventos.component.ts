@@ -17,6 +17,9 @@ export class EventosComponent implements OnInit {
   constructor(private eventosService: EventosService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    const data = new Date();
+    this.dateFilter = data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
+
     $('#date').pickadate({
       min: new Date(),
       selectMonths: true, // Creates a dropdown to control month
