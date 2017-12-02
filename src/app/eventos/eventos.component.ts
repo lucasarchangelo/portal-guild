@@ -70,7 +70,12 @@ unSubscribeEvent(eventId: any) {
     this.router.navigate(['/adm-eventos']);
   }
 
-  showSubscribeButton(evento: any) {
+showSubscribeButton(evento: any) {
+    if (evento.players.length >= evento.limit) { return false; }
     return ( evento.players.filter(x => x.id === this.usuarioId).length === 0 );
+  }
+
+  limitCalculate(evento: any) {
+    return (evento.limit - evento.players.length);
   }
 }

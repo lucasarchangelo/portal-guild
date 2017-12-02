@@ -13,8 +13,8 @@ export class AuthService {
   private usuarioID = '';
   mostrarMenuLogadoEmitter = new EventEmitter<number>();
   mostrarADMEmitter = new EventEmitter<boolean>();
-   url = `https://backend-guild.herokuapp.com/guild/login`;
-  // url = `http://localhost:5000/guild/login`;
+  // url = `https://backend-guild.herokuapp.com/guild/login`;
+   url = `http://localhost:5000/guild/login`;
   constructor(private router: Router, private http: Http) { }
 
   login(usuario: Usuario, form: any, $: any) {

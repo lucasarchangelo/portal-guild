@@ -12,15 +12,25 @@
                 <img class="activator" src="assets/images/destiny-2.jpg">
               </div>
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{ event.name }}<i class="material-icons right">more_vert</i></span>
-                <p>
-                  <a href="#">{{ event.date }}</a>
-                  <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteEvent(event._id)' *ngIf="usuarioId == event.creatorPlayer">Excluir Evento
-                  </button>
-                </p>
+                <span class="card-title activator grey-text text-darken-4">{{ event.gameName }} - {{ event.name }}<i class="material-icons right">more_vert</i></span>
+                  <div class="row">
+                    <div class="input-field col s10">
+                      <a>{{ event.date }} - Vagas restantes: {{ limitCalculate(event) }}</a>
+                    </div>
+                    <div class="input-field col s2">
+                      <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteEvent(event._id)' *ngIf="usuarioId == event.creatorPlayer">Excluir Evento
+                      </button>
+                    </div>
+                  </div>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Membros participantes<i class="material-icons right">close</i></span>
+                <span class="card-title grey-text text-darken-4">Detalhe:<i class="material-icons right">close</i></span>
+                <p>
+                    {{ event.detail }}
+                </p>
+                <p>
+                  Participantes:
+                </p>
                 <p *ngFor="let player of event.players;">
                   {{ player.idpsn }}
                   <button class="btn waves-effect waves-light red" type="submit" name="action" (click)=unSubscribeEvent(event._id) *ngIf="usuarioId == player.id">Sair
@@ -28,7 +38,7 @@
                   </button>
                 </p>
                 <button class="btn waves-effect waves-light" type="submit" name="action" (click)=subscribeEvent(event._id) *ngIf="showSubscribeButton(event)">Participar
-                    <i class="material-icons right">send</i>
+                  <i class="material-icons right">send</i>
                 </button>
               </div>
             </div>

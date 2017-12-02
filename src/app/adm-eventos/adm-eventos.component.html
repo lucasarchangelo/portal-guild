@@ -7,6 +7,26 @@
       </div>
     </div>
     <div class="row">
+      <div class="input-field col s12">
+        <textarea [(ngModel)]="event.detail" id="detail" name="detail" type="text" class="materialize-textarea"></textarea>
+        <label class="active" for="detail">Detalhes</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input [(ngModel)]="event.gameName" id="gameName" name="gameName" type="text" class="validate" required>
+        <label class="active" for="gameName">Jogo</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <p class="range-field">
+          <input [(ngModel)]="event.limit" type="range" id="limit" name="limit" min="0" max="8">
+          <label class="active" for="limit">Limite de jogadores</label>
+        </p>
+      </div>
+    </div>
+    <div class="row">
       <div class="input-field col s6">
         <input [(ngModel)]="event.date" id="date" name="date" type="date" class="datepicker">
         <label class="active" for="date">Data</label>
@@ -14,10 +34,14 @@
       <div class="input-field col s6">
           <input [(ngModel)]="time" id="time" name="time" type="text" class="timepicker">
           <label class="active" for="time">Hora</label>
-        </div>
+      </div>
     </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!f.valid">Criar evento
-      <i class="material-icons right">send</i>
-    </button>
+    <div class="row">
+      <div class="input-field col s12">
+        <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!f.valid">Criar evento
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
   </form>
 </div>
