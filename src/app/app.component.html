@@ -19,16 +19,16 @@
       <li *ngIf="(mostrarMenuLogado>0)">
         <div class="user-view">
           <div class="background">
-            <img src="./assets/images/background_tmt.jpeg">
+            <img src="./assets/images/test_003.jpeg">
           </div>
-          <a href="#!user"><img class="circle" src="./assets/images/user_profile.png"></a>
-          <a href="#!name"><span class="white-text name">{{ usuarioNome }}</span></a>
-          <a href="#!email"><span class="white-text email">{{ usuarioPsn }}</span></a>
+          <a href="#!user">&nbsp;</a> <!-- <img class="circle" src="./assets/images/user_profile.png"> -->
+          <a href="#!name"><span class="orange-text darken-4 name">&nbsp;</span></a> <!-- {{ usuarioNome }} -->
+          <a href="#!email"><span class="orange-text darken-4 email">&nbsp;</span></a> <!-- {{ usuarioPsn }} -->
       </div>
     </li>
     <li><a routerLink="login" *ngIf="(mostrarMenuLogado===-1)" >Login</a></li>
     <li><a routerLink="new-user" *ngIf="(mostrarMenuLogado===-1)" >Novo Membro</a></li>
-    <li><a class="subheader" *ngIf="(mostrarMenuLogado>0)">Area Membro</a></li>
+    <li><a class="subheader" *ngIf="(mostrarMenuLogado>0)">Bem vindo, {{ usuarioPsn }}</a></li>
     <li><div class="divider" *ngIf="(mostrarMenuLogado>0)"></div></li>
     <li><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
     <li><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
