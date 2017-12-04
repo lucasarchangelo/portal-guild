@@ -14,7 +14,8 @@
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{ event.gameName }} - {{ event.name }}<i class="material-icons right">more_vert</i></span>
                   <p>
-                    <a>{{ event.date }} - Vagas restantes: {{ limitCalculate(event) }}</a>
+                    <a>{{ event.date }} - Vagas:{{ limitCalculate(event) }}</a>
+                    <a [href]="urlSanitizer('whatsapp://send?text=Venha%20jogar%20no%20evento%20' + urlReplace(event.gameName) + '%20-%20' + urlReplace(event.name) +'%20dia:%20' +urlReplace(event.date) + ',%20ainda%20temos%20' +limitCalculate(event) +'%20vagas.%20-%20https://portal-guild.herokuapp.com/')"><img src="assets/images/WhatsApp_Icon.png"></a>
                     <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteEvent(event._id)' *ngIf="usuarioId == event.creatorPlayer">
                       <i class="material-icons left">delete</i>
                       <span class="hide-on-small-only">Excluir Evento</span>

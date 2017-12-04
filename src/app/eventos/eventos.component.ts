@@ -1,8 +1,9 @@
-import { EventosService } from './eventos.service';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Evento } from './evento';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
+import { EventosService } from './eventos.service';
 
 declare var $: any;
 @Component({
@@ -14,7 +15,8 @@ export class EventosComponent implements OnInit {
   events: any;
   usuarioId: any;
   dateFilter: any;
-  constructor(private eventosService: EventosService, private authService: AuthService, private router: Router) { }
+  constructor(private eventosService: EventosService, private authService: AuthService,
+    private router: Router, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     const data = new Date();
@@ -77,5 +79,13 @@ showSubscribeButton(evento: any) {
 
   limitCalculate(evento: any) {
     return (evento.limit - evento.players.length);
+  }
+
+  urlReplace(text: string) {
+    return text.replace(/ /g, '%20');
+  }
+
+  urlSanitizer(url: any) {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
