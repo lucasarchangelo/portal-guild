@@ -15,12 +15,37 @@
       </div>
     </nav>
   </div>
-  <ul class="side-nav" id="mobile-demo">
-      <li routerLinkActive='active'><a routerLink="login" *ngIf="(mostrarMenuLogado===-1)" >Login</a></li>
-      <li routerLinkActive='active'><a routerLink="new-user" >Novo Membro</a></li>
-      <li routerLinkActive='active'><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
-      <li routerLinkActive='active'><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
-      <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="(mostrarMenuLogado>1)" >Membros</a></li>
+  <ul id="mobile-demo" class="side-nav">
+      <li *ngIf="(mostrarMenuLogado>0)">
+        <div class="user-view">
+          <div class="background">
+            <img src="./assets/images/background_tmt.jpeg">
+          </div>
+          <a href="#!user"><img class="circle" src="./assets/images/user_profile.png"></a>
+          <a href="#!name"><span class="white-text name">{{ usuarioNome }}</span></a>
+          <a href="#!email"><span class="white-text email">{{ usuarioPsn }}</span></a>
+      </div>
+    </li>
+    <li><a routerLink="login" *ngIf="(mostrarMenuLogado===-1)" >Login</a></li>
+    <li><a routerLink="new-user" *ngIf="(mostrarMenuLogado===-1)" >Novo Membro</a></li>
+    <li><a class="subheader" *ngIf="(mostrarMenuLogado>0)">Area Membro</a></li>
+    <li><div class="divider" *ngIf="(mostrarMenuLogado>0)"></div></li>
+    <li><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
+    <li><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
+    <li><a class="subheader" *ngIf="(mostrarMenuLogado>1)">Area Adm</a></li>
+    <li><div class="divider" *ngIf="(mostrarMenuLogado>1)"></div></li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li *ngIf="(mostrarMenuLogado>1)">
+          <a class="collapsible-header">Administrativo<i class="material-icons">arrow_drop_down</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a routerLink="adm-membros">Membros</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
   </ul>
 </header>
 <div class="container">
