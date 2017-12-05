@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private authservice: AuthService, private cookieService: CookieService) { }
 
   ngOnInit() {
-    if (this.cookieService.get('PortalGuild')) {
+    if (this.cookieService.check('PortalGuild')) {
       this.authservice.login(this.usuario, $);
     }
   }

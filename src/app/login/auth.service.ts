@@ -35,7 +35,9 @@ export class AuthService {
         this.usuarioID = data.id;
         this.usuarioNome = data.nome;
         this.usuarioPsn = data.idpsn;
-        this.cookieService.set( 'PortalGuild', data.token );
+        if (!this.cookieService.check('PortalGuild')) {
+          this.cookieService.set( 'PortalGuild', data.token, 6 );
+        }
         this.mostrarMenuLogadoEmitter.emit(this.usuarioAcesso);
         if (this.usuarioAcesso > 1) {
           this.router.navigate(['/adm-membros']);
