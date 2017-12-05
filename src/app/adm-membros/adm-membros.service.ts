@@ -1,5 +1,5 @@
 import { AuthService } from './../login/auth.service';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { AccessRoles } from './roles';
@@ -9,7 +9,7 @@ export class AdmMembrosService {
 
    url = `https://backend-guild.herokuapp.com/guild/users`;
   // url = `http://localhost:5000/guild/users`;
-
+  playersToAcept = new EventEmitter<number>();
   constructor(private http: Http, private authService: AuthService) { }
 
   listAll() {

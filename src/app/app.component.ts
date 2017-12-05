@@ -1,3 +1,4 @@
+import { AdmMembrosService } from './adm-membros/adm-membros.service';
 import { AuthService } from './login/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
   mostrarMenuLogado = -1;
   usuarioNome = '';
   usuarioPsn = '';
-  constructor(private authService: AuthService) { }
+  playersToAcept = 0;
+  constructor(private authService: AuthService, private admMembrosService: AdmMembrosService) { }
 
   ngOnInit() {
 
@@ -36,6 +38,12 @@ export class AppComponent implements OnInit {
       mostrar => {
         this.mostrarMenuLogado = mostrar;
         this.infoUsers();
+      }
+    );
+
+    this.admMembrosService.playersToAcept.subscribe(
+      data => {
+        this.playersToAcept = data;
       }
     );
   }

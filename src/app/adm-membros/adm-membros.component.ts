@@ -1,5 +1,5 @@
 import { AdmMembrosService } from './adm-membros.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 declare var $: any;
 
@@ -8,6 +8,7 @@ declare var $: any;
   templateUrl: './adm-membros.component.html',
   styleUrls: ['./adm-membros.component.css']
 })
+
 export class AdmMembrosComponent implements OnInit {
 
   players: any;
@@ -22,6 +23,7 @@ export class AdmMembrosComponent implements OnInit {
     this.admMembrosService.listAll().subscribe(
       data => {
         this.players = data;
+        this.admMembrosService.playersToAcept.emit(data.filter(x => x.acesso === 0).length);
         $('#modal1').modal('close');
       }
     );

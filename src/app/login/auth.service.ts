@@ -15,7 +15,6 @@ export class AuthService {
   private usuarioNome = '';
   private usuarioPsn = '';
   mostrarMenuLogadoEmitter = new EventEmitter<number>();
-  mostrarADMEmitter = new EventEmitter<boolean>();
    url = `https://backend-guild.herokuapp.com/guild/login`;
   // url = `http://localhost:5000/guild/login`;
   constructor(private router: Router, private http: Http, private cookieService: CookieService) { }
@@ -46,7 +45,6 @@ export class AuthService {
       },
       error => {
         this.cookieService.deleteAll();
-        this.mostrarADMEmitter.emit(false);
         this.mostrarMenuLogadoEmitter.emit(-1);
         this.usuarioAutenticado = false;
         this.usuarioAcesso = -1;
