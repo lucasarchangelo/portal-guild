@@ -1,9 +1,9 @@
-import { AuthGuardMember } from './guards/auth-guard-member';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AuthGuardMember } from './guards/auth-guard-member';
 import { UserService } from './new-user/user.service';
 import { MaterializeModule } from 'angular2-materialize';
 import { AuthService } from './login/auth.service';

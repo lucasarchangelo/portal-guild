@@ -1,8 +1,8 @@
-import { AuthGuardMember } from './guards/auth-guard-member';
 import { ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { AuthGuardMember } from './guards/auth-guard-member';
 import { WaitingAcceptComponent } from './waiting-accept/waiting-accept.component';
 import { AuthGuard } from './guards/auth-guard';
 import { AdmMembrosComponent } from './adm-membros/adm-membros.component';
@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { AdmEventosComponent } from './adm-eventos/adm-eventos.component';
 
 const appRoutes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: '', component: LoginComponent},
     { path: 'login', component: LoginComponent},
     { path: 'new-user', component: NewUserComponent},
     { path: 'waiting-accept', component: WaitingAcceptComponent},
