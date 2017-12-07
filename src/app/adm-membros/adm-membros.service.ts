@@ -7,8 +7,8 @@ import { AccessRoles } from './roles';
 @Injectable()
 export class AdmMembrosService {
 
-   url = `https://backend-guild.herokuapp.com/guild/users`;
-  // url = `http://localhost:5000/guild/users`;
+  // url = `https://backend-guild.herokuapp.com/guild/users`;
+   url = `http://localhost:5000/guild/users`;
   playersToAcept = new EventEmitter<number>();
   constructor(private http: Http, private authService: AuthService) { }
 
