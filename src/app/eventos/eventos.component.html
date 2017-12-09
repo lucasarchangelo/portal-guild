@@ -1,11 +1,5 @@
 <div class="container">
-    <div class="row">
-        <div class="input-field col s12">
-          <input [(ngModel)]="dateFilter" id="date" #filter (change)=0 name="date" type="date" class="datepicker">
-          <label class="active" for="date">Data</label>
-        </div>
-      </div>
-  <div class="row" *ngFor="let event of (events | arrayFilter: filter.value );">
+  <div class="row" *ngFor="let event of (events | dateFilter );">
       <div class="col s12">
           <div class="card">
               <div class="card-image waves-effect waves-block waves-light">

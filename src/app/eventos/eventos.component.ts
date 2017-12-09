@@ -19,8 +19,6 @@ export class EventosComponent implements OnInit {
     private router: Router, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    const data = new Date();
-    this.dateFilter = data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
 
     $('#date').pickadate({
       min: new Date(),

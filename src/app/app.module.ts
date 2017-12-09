@@ -1,3 +1,4 @@
+import { DateFilterPipe } from './eventos/date-filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +33,7 @@ import { CookieService } from 'ngx-cookie-service';
     EventosComponent,
     AdmMembrosComponent,
     AdmEventosComponent,
+    DateFilterPipe,
     ArrayFilterPipe,
     WaitingAcceptComponent
   ],
