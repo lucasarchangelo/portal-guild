@@ -18,7 +18,7 @@ export class AdmEventosComponent implements OnInit {
   constructor(private admEventosService: AdmEventosService, private eventosService: EventosService, private router: Router) { }
 
   ngOnInit() {
-    this.event.limit = 8;
+    this.event.limit = 6;
     $('#date').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15, // Creates a dropdown of 15 years to control year,
