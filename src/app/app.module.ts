@@ -23,6 +23,7 @@ import { EventosService } from './eventos/eventos.service';
 import { ArrayFilterPipe } from './eventos/array-filter.pipe';
 import { WaitingAcceptComponent } from './waiting-accept/waiting-accept.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CookieService } from 'ngx-cookie-service';
     AdmEventosComponent,
     DateFilterPipe,
     ArrayFilterPipe,
-    WaitingAcceptComponent
+    WaitingAcceptComponent,
+    AdmJogosComponent
   ],
   imports: [
     MaterializeModule,

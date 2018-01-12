@@ -11,10 +11,12 @@ import { AdminComponent } from './admin/admin.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { LoginComponent } from './login/login.component';
 import { AdmEventosComponent } from './adm-eventos/adm-eventos.component';
+import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent},
     { path: 'login', component: LoginComponent},
+    { path: 'game', component: AdmJogosComponent},
     { path: 'new-user', component: NewUserComponent},
     { path: 'waiting-accept', component: WaitingAcceptComponent},
     { path: 'eventos', component: EventosComponent, canActivate: [AuthGuardMember]},

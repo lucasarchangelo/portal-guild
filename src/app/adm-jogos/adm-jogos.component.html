@@ -1,0 +1,91 @@
+<div class="container">
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Cadastrar Jogos</div>
+        <div class="collapsible-body">
+            <form id="formJogo" data-toggle="validator" #formGame="ngForm"  role="form" (ngSubmit)="gravaNovoJogo(formGame)" >
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input [(ngModel)]="game.name" id="name" name="name" type="text" class="validate" required>
+                    <label class="active" for="name">Nome</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!formGame.valid">Criar Jogo
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Cadastrar Pendências</div>
+      <div class="collapsible-body">
+        <form id="formPendencia" data-toggle="validator" #formPendency="ngForm"  role="form" (ngSubmit)="gravaNovaPendencia(formPendency)" >
+          <div class="row">
+            <div class="input-field col s12">
+                <select [(ngModel)]="pendency.game" id="game" name="game" >
+                  <option value="" disabled selected>Jogos...</option>
+                  <option value="1">Destiny</option>
+                  <option value="2">Overwatch</option>
+                </select>
+              <label>Jogos</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input [(ngModel)]="pendency.name" id="name" name="name" type="text" class="validate" required>
+              <label class="active" for="name">Nome</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!formPendency.valid">Criar Pendência
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Gerenciar Pendências</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select [(ngModel)]="pendency.game" id="game" name="game" >
+                      <option value="" disabled selected>Jogos...</option>
+                      <option value="1">Destiny</option>
+                      <option value="2">Overwatch</option>
+                    </select>
+                  <label>Jogos</label>
+                </div>
+            </div>
+            <div class="row">
+              <table>
+                  <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>D9</td>
+                      <td>
+                          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='click()'>
+                              <i class="material-icons left">delete</i><span class="hide-on-small-only">Excluir Pendência</span>
+                          </button>
+                      </td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
+        </div>
+    </li>
+  </ul>
+</div>
+
+
