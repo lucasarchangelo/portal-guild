@@ -16,12 +16,12 @@ import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
 const appRoutes: Routes = [
     { path: '', component: LoginComponent},
     { path: 'login', component: LoginComponent},
-    { path: 'game', component: AdmJogosComponent},
     { path: 'new-user', component: NewUserComponent},
     { path: 'waiting-accept', component: WaitingAcceptComponent},
     { path: 'eventos', component: EventosComponent, canActivate: [AuthGuardMember]},
     { path: 'adm-eventos', component: AdmEventosComponent, canActivate: [AuthGuardMember]},
-    { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]}
+    { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]},
+    { path: 'adm-game', component: AdmJogosComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
