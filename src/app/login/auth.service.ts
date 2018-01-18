@@ -15,8 +15,8 @@ export class AuthService {
   private usuarioNome = '';
   private usuarioPsn = '';
   mostrarMenuLogadoEmitter = new EventEmitter<number>();
-  // url = `https://backend-guild.herokuapp.com/guild/login`;
-   url = `http://localhost:5000/guild/login`;
+   url = `https://backend-guild.herokuapp.com/guild/login`;
+  // url = `http://localhost:5000/guild/login`;
   constructor(private router: Router, private http: Http, private cookieService: CookieService) { }
 
   login(usuario: Usuario, $: any) {

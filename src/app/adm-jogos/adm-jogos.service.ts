@@ -8,8 +8,8 @@ import { Pendency } from './pendency';
 export class AdmJogosService {
 
   // url = `https://backend-guild.herokuapp.com/guild/users`;
-  urlGames = `http://localhost:5000/guild/games`;
-  urlPendency = `http://localhost:5000/guild/pendencies`;
+  urlGames = `https://backend-guild.herokuapp.com/guild/games`;
+  urlPendency = `https://backend-guild.herokuapp.com/guild/pendencies`;
 
   constructor(private http: Http, private authService: AuthService) { }
 
