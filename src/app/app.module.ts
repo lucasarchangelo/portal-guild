@@ -24,6 +24,7 @@ import { ArrayFilterPipe } from './eventos/array-filter.pipe';
 import { WaitingAcceptComponent } from './waiting-accept/waiting-accept.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
+import { AdmJogosService } from './adm-jogos/adm-jogos.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
     AdmMembrosService,
     AdmEventosService,
     EventosService,
-    CookieService
+    CookieService,
+    AdmJogosService
   ],
   bootstrap: [AppComponent]
 })
