@@ -70,11 +70,12 @@ export class AdmJogosComponent implements OnInit {
 
   gravaNovaPendencia(form) {
     $('#modal1').modal('open');
+
     this.pendency.game = $('#gameCad')[0].value;
     this.admJogosService.createPendency(this.pendency).subscribe(data => {
       $('#modal1').modal('close');
       $('#modal3').modal('open');
-      form.reset();
+      this.pendency.name = '';
     },
     error => {
       $('#modal1').modal('close');

@@ -1,7 +1,4 @@
 export class Pendency {
-  game: {
-    id: string;
-    gameName: string;
-  };
+  game: string;
   name: string;
 }
