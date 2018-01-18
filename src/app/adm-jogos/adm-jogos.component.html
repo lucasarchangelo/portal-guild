@@ -77,7 +77,7 @@
                   <label>Jogos</label>
                 </div>
                 <div class="input-field col s4">
-                  <button class="btn waves-effect waves-light" type="button" name="buscar">
+                  <button class="btn waves-effect waves-light" type="button" name="buscar" (click)="listPendencyByGame()">
                     <span class="hide-on-small-only">Buscar</span>
                     <i class="material-icons left">search</i>
                   </button>
@@ -92,10 +92,10 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>D9</td>
+                    <tr *ngFor="let pendency of pendencies;">
+                      <td>{{ pendency.name }}</td>
                       <td>
-                          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='click()'>
+                          <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deletePendency(pendency._id)'>
                               <i class="material-icons left">delete</i><span class="hide-on-small-only">Excluir Pendência</span>
                           </button>
                       </td>

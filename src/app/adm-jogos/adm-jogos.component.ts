@@ -69,11 +69,37 @@ export class AdmJogosComponent implements OnInit {
   }
 
   gravaNovaPendencia(form) {
-
+    $('#modal1').modal('open');
+    this.pendency.game = $('#gameCad')[0].value;
+    this.admJogosService.createPendency(this.pendency).subscribe(data => {
+      $('#modal1').modal('close');
+      $('#modal3').modal('open');
+      form.reset();
+    },
+    error => {
+      $('#modal1').modal('close');
+      $('#modal2').modal('open');
+    });
   }
 
-  evento() {
+  listPendencyByGame() {
+    $('#modal1').modal('open');
+    this.pendency.game = $('#gameList')[0].value;
+    this.admJogosService.listPendencyByGame(this.pendency.game).subscribe(
+      data => {
+        this.pendencies = data;
+        $('#modal1').modal('close');
 
+      }
+    );
+  }
+
+  deletePendency(idPendency: any) {
+    this.admJogosService.deletePendency(idPendency).subscribe(
+      data => {
+        this.listPendencyByGame();
+      }
+    );
   }
 
 }
