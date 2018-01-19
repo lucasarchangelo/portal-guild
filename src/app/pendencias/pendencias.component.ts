@@ -2,6 +2,7 @@ import { PendenciasService } from './pendencias.service';
 import { AdmJogosService } from './../adm-jogos/adm-jogos.service';
 import { Component, OnInit } from '@angular/core';
 import { Pendency } from '../adm-jogos/pendency';
+import { AuthService } from '../login/auth.service';
 
 declare var $: any;
 
@@ -17,10 +18,11 @@ export class PendenciasComponent implements OnInit {
   pendency: Pendency = new Pendency();
   usuarioId: any;
 
-  constructor(private admJogosService: AdmJogosService, private pendenciasService: PendenciasService) { }
+  constructor(private admJogosService: AdmJogosService, private pendenciasService: PendenciasService, private authService: AuthService) { }
 
   ngOnInit() {
     this.listAllGames();
+    this.usuarioId = this.authService.getID();
   }
 
   updateMaterialSelect() {
@@ -58,19 +60,23 @@ export class PendenciasComponent implements OnInit {
     );
   }
 
-  subscribeEvent(pendencyId: any) {
+  subscribePendency(pendencyId: any) {
     this.pendenciasService.subscribePendency(pendencyId).subscribe(
       data => {
         this.listPendencyByGame();
       }
     );
   }
-unSubscribeEvent(pendencyId: any) {
+unSubscribePendency(pendencyId: any) {
     this.pendenciasService.unSubscribePendency(pendencyId).subscribe(
       data => {
         this.listPendencyByGame();
       }
     );
+  }
+
+  showSubscribeButton(pendencies: any) {
+    return ( pendencies.players.filter(x => x.id === this.usuarioId).length === 0 );
   }
 
 }
