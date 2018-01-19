@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+      <div class="input-field col s8">
+          <select [(ngModel)]="pendency.game" id="gameList" name="gameList" >
+          </select>
+        <label>Jogos</label>
+      </div>
+      <div class="input-field col s4">
+        <button class="btn waves-effect waves-light" type="button" name="buscar" (click)="listPendencyByGame()">
+          <span class="hide-on-small-only">Buscar</span>
+          <i class="material-icons left">search</i>
+        </button>
+    </div>
+  </div>
+  <div class="row">
+    <ul class="collapsible" data-collapsible="accordion">
+      <li *ngFor="let pendency of pendencies;">
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>{{ pendency.name }}
+          </div>
+          <div class="collapsible-body">
+            <div class="row">
+                <div class="input-field col s6">
+                    <button class="btn waves-effect waves-light" type="submit" name="action" (click)='subscribePendency(player.id)'>
+                        <i class="material-icons left">delete</i><span class="hide-on-small-only">Adicionar Pendência</span>
+                    </button>
+                </div>
+                <div class="input-field col s6">
+                    <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='unsubscribePendency(player.id)'>
+                        <i class="material-icons left">delete</i><span class="hide-on-small-only">Excluir Pendência</span>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+              <table>
+                  <thead>
+                    <tr>
+                        <th>Player</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let player of pendency.players;">
+                      <td>{{ player.psnid }}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+</div>

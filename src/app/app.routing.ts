@@ -1,3 +1,4 @@
+import { PendenciasComponent } from './pendencias/pendencias.component';
 import { ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     { path: 'waiting-accept', component: WaitingAcceptComponent},
     { path: 'eventos', component: EventosComponent, canActivate: [AuthGuardMember]},
     { path: 'adm-eventos', component: AdmEventosComponent, canActivate: [AuthGuardMember]},
+    { path: 'pendencias', component: PendenciasComponent, canActivate: [AuthGuardMember]},
     { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]},
     { path: 'adm-game', component: AdmJogosComponent, canActivate: [AuthGuard]}
 ];

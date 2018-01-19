@@ -1,3 +1,4 @@
+import { PendenciasService } from './pendencias/pendencias.service';
 import { DateFilterPipe } from './eventos/date-filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { WaitingAcceptComponent } from './waiting-accept/waiting-accept.componen
 import { CookieService } from 'ngx-cookie-service';
 import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
 import { AdmJogosService } from './adm-jogos/adm-jogos.service';
+import { PendenciasComponent } from './pendencias/pendencias.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AdmJogosService } from './adm-jogos/adm-jogos.service';
     DateFilterPipe,
     ArrayFilterPipe,
     WaitingAcceptComponent,
-    AdmJogosComponent
+    AdmJogosComponent,
+    PendenciasComponent
   ],
   imports: [
     MaterializeModule,
@@ -56,7 +59,8 @@ import { AdmJogosService } from './adm-jogos/adm-jogos.service';
     AdmEventosService,
     EventosService,
     CookieService,
-    AdmJogosService
+    AdmJogosService,
+    PendenciasService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,7 @@
           <li routerLinkActive='active'><a routerLink="new-user" >Novo Membro</a></li>
           <li routerLinkActive='active'><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
           <li routerLinkActive='active'><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
+          <li routerLinkActive='active'><a routerLink="pendencias" *ngIf="(mostrarMenuLogado>0)" >Pendencias</a></li>
           <li routerLinkActive='active'><a routerLink="adm-membros" *ngIf="(mostrarMenuLogado>1)" >Membros
             <span class="new badge" data-badge-caption="Membros pendentes" *ngIf="(playersToAcept>0)">{{ playersToAcept }}</span></a>
           </li>
@@ -34,6 +35,7 @@
     <li><div class="divider" *ngIf="(mostrarMenuLogado>0)"></div></li>
     <li><a routerLink="adm-eventos" *ngIf="(mostrarMenuLogado>0)" >Novo Evento</a></li>
     <li><a routerLink="eventos" *ngIf="(mostrarMenuLogado>0)" >Eventos</a></li>
+    <li><a routerLink="pendencias" *ngIf="(mostrarMenuLogado>0)" >Pendencias</a></li>
     <li><a class="subheader" *ngIf="(mostrarMenuLogado>1)">Area Adm</a></li>
     <li><div class="divider" *ngIf="(mostrarMenuLogado>1)"></div></li>
     <li class="no-padding">
