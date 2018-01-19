@@ -7,10 +7,10 @@ import { Pendency } from './pendency';
 @Injectable()
 export class AdmJogosService {
 
-  // urlGames = `https://backend-guild.herokuapp.com/guild/games`;
-  // urlPendency = `https://backend-guild.herokuapp.com/guild/pendencies`;
-   urlGames = `http://localhost:5000/guild/games`;
-   urlPendency = `http://localhost:5000/guild/pendencies`;
+   urlGames = `https://backend-guild.herokuapp.com/guild/games`;
+   urlPendency = `https://backend-guild.herokuapp.com/guild/pendencies`;
+  // urlGames = `http://localhost:5000/guild/games`;
+  // urlPendency = `http://localhost:5000/guild/pendencies`;
 
   constructor(private http: Http, private authService: AuthService) { }
 

@@ -5,8 +5,8 @@ import { AuthService } from '../login/auth.service';
 @Injectable()
 export class PendenciasService {
 
-  // url = `https://backend-guild.herokuapp.com/guild/pendencies`;
-   url = `http://localhost:5000/guild/pendencies`;
+   url = `https://backend-guild.herokuapp.com/guild/pendencies`;
+  // url = `http://localhost:5000/guild/pendencies`;
 
   constructor(private http: Http, private authService: AuthService) { }
 
