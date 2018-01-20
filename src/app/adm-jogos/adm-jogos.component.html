@@ -37,12 +37,13 @@
                       <thead>
                         <tr>
                             <th>Nome</th>
-                            <th></th>
+                            <th>Dia Reset</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let game of games;">
                           <td>{{ game.name }}</td>
+                          <td>{{ game.resetDay | weekString }}</td>
                           <td>
                               <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deleteGame(game._id)'>
                                   <i class="material-icons left">delete</i><span class="hide-on-small-only">Excluir Jogo</span>
@@ -109,12 +110,13 @@
                   <thead>
                     <tr>
                         <th>Nome</th>
-                        <th></th>
+                        <th>Semanal</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let pendency of pendencies;">
                       <td>{{ pendency.name }}</td>
+                      <td>{{ pendency.weekly | weekly }}</td>
                       <td>
                           <button class="btn waves-effect waves-light red" type="submit" name="action" (click)='deletePendency(pendency._id)'>
                               <i class="material-icons left">delete</i><span class="hide-on-small-only">Excluir Pendência</span>

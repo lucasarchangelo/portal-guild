@@ -27,6 +27,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { AdmJogosComponent } from './adm-jogos/adm-jogos.component';
 import { AdmJogosService } from './adm-jogos/adm-jogos.service';
 import { PendenciasComponent } from './pendencias/pendencias.component';
+import { WeeklyPipe } from './adm-jogos/weekly.pipe';
+import { WeekStringPipe } from './adm-jogos/week-string.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { PendenciasComponent } from './pendencias/pendencias.component';
     ArrayFilterPipe,
     WaitingAcceptComponent,
     AdmJogosComponent,
-    PendenciasComponent
+    PendenciasComponent,
+    WeeklyPipe,
+    WeekStringPipe
   ],
   imports: [
     MaterializeModule,
