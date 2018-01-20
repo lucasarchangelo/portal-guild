@@ -19,6 +19,7 @@ export class AdmJogosComponent implements OnInit {
   constructor(private admJogosService: AdmJogosService) { }
 
   ngOnInit() {
+    this.dateTest();
     $('.collapsible').collapsible();
     this.listAllGames();
   }
@@ -30,8 +31,13 @@ export class AdmJogosComponent implements OnInit {
       new_options = new_options.concat(`<option value ='` + game._id + `' >` + game.name + `</option>`);
     }
 
-    $('select').material_select('destroy');
-    $('select').html(new_options);
+    $('#gameCad').material_select('destroy');
+    $('#gameCad').html(new_options);
+
+    $('#gameList').material_select('destroy');
+    $('#gameList').html(new_options);
+
+
     $('select').material_select();
   }
 
@@ -56,6 +62,7 @@ export class AdmJogosComponent implements OnInit {
 
   createGame(form) {
     $('#modal1').modal('open');
+    this.game.resetDay = $('#resetDay')[0].value;
     this.admJogosService.createGame(this.game).subscribe(data => {
       $('#modal1').modal('close');
       $('#modal3').modal('open');
@@ -72,6 +79,7 @@ export class AdmJogosComponent implements OnInit {
     $('#modal1').modal('open');
 
     this.pendency.game = $('#gameCad')[0].value;
+    this.pendency.weekly = $('#weekly')[0].value;
     this.admJogosService.createPendency(this.pendency).subscribe(data => {
       $('#modal1').modal('close');
       $('#modal3').modal('open');
@@ -101,6 +109,11 @@ export class AdmJogosComponent implements OnInit {
         this.listPendencyByGame();
       }
     );
+  }
+
+  dateTest() {
+     const date = new Date();
+     date.getUTCDay();
   }
 
 }
