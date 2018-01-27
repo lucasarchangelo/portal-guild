@@ -51,14 +51,16 @@ export class AdmJogosService {
       map((res: Response) => res.json());
   }
 
-  listPendencyByGame(gameId) {
+  listPendencyByGame(gameId, weekly?) {
     const headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
     headers.append('x-access-token', this.authService.getToken());
     const options = new RequestOptions({ headers });
-
-    return this.http.get(this.urlPendency + `/${ gameId }`, options).map((res: Response) => res.json());
+    if (weekly === undefined) {
+      return this.http.get(this.urlPendency + `/${ gameId }`, options).map((res: Response) => res.json());
+    }
+    return this.http.get(this.urlPendency + `/${ gameId }/${ weekly }`, options).map((res: Response) => res.json());
   }
 
   deletePendency(pendencyId: any) {

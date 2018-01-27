@@ -1,19 +1,19 @@
-import { PendenciasService } from './pendencias.service';
-import { AdmJogosService } from './../adm-jogos/adm-jogos.service';
 import { Component, OnInit } from '@angular/core';
+
 import { Pendency } from '../adm-jogos/pendency';
 import { AuthService } from '../login/auth.service';
+import { PendenciasService } from '../pendencias/pendencias.service';
+import { AdmJogosService } from './../adm-jogos/adm-jogos.service';
 
 declare var $: any;
 
 @Component({
-  selector: 'app-pendencias',
-  templateUrl: './pendencias.component.html',
-  styleUrls: ['./pendencias.component.css']
+  selector: 'app-pendencias-semanais',
+  templateUrl: './pendencias-semanais.component.html',
+  styleUrls: ['./pendencias-semanais.component.css']
 })
-export class PendenciasComponent implements OnInit {
-
-  weekly= 0;
+export class PendenciasSemanaisComponent implements OnInit {
+  weekly= 1;
   games: any;
   pendencies: any;
   pendency: Pendency = new Pendency();

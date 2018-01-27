@@ -1,3 +1,4 @@
+import { PendenciasSemanaisComponent } from './pendencias-semanais/pendencias-semanais.component';
 import { PendenciasComponent } from './pendencias/pendencias.component';
 import { ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     { path: 'eventos', component: EventosComponent, canActivate: [AuthGuardMember]},
     { path: 'adm-eventos', component: AdmEventosComponent, canActivate: [AuthGuardMember]},
     { path: 'pendencias', component: PendenciasComponent, canActivate: [AuthGuardMember]},
+    { path: 'pendencias-semanais', component: PendenciasSemanaisComponent, canActivate: [AuthGuardMember]},
     { path: 'adm-membros', component: AdmMembrosComponent, canActivate: [AuthGuard]},
     { path: 'adm-game', component: AdmJogosComponent, canActivate: [AuthGuard]}
 ];

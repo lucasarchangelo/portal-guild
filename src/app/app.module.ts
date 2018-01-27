@@ -1,10 +1,10 @@
-import { PendenciasService } from './pendencias/pendencias.service';
-import { DateFilterPipe } from './eventos/date-filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { PendenciasService } from './pendencias/pendencias.service';
+import { DateFilterPipe } from './eventos/date-filter.pipe';
 import { AuthGuardMember } from './guards/auth-guard-member';
 import { UserService } from './new-user/user.service';
 import { MaterializeModule } from 'angular2-materialize';
@@ -29,6 +29,7 @@ import { AdmJogosService } from './adm-jogos/adm-jogos.service';
 import { PendenciasComponent } from './pendencias/pendencias.component';
 import { WeeklyPipe } from './adm-jogos/weekly.pipe';
 import { WeekStringPipe } from './adm-jogos/week-string.pipe';
+import { PendenciasSemanaisComponent } from './pendencias-semanais/pendencias-semanais.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { WeekStringPipe } from './adm-jogos/week-string.pipe';
     AdmJogosComponent,
     PendenciasComponent,
     WeeklyPipe,
-    WeekStringPipe
+    WeekStringPipe,
+    PendenciasSemanaisComponent
   ],
   imports: [
     MaterializeModule,
